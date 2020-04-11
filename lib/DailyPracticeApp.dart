@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'AccomplishmentControl.dart';
+import 'AccomplishedAnimation.dart';
 
 class DailyPracticeApp extends StatelessWidget {
  @override
@@ -13,7 +14,7 @@ class DailyPracticeApp extends StatelessWidget {
         textTheme: Typography.whiteCupertino 
       ),
      home: Scaffold(
-       body: AccomplishmentControl()
+       body: AccomplishedAnimation()
      ),
    );
  }

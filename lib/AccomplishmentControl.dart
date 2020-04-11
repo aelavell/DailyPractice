@@ -8,17 +8,23 @@ class AccomplishmentControl extends StatefulWidget {
 class _AccomplishmentControlState extends State<AccomplishmentControl> with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
+  AnimationController controller2;
 
   @override 
   void initState() {
     super.initState();
 
+    // flow: person holds down  to 1. if they get to 1,
+    // changes into new animation state.
+    // 
+
     controller = AnimationController(duration: const Duration(milliseconds: 1500), vsync: this)
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
-          Future.delayed(const Duration(milliseconds: 1200), () {
-            controller.reverse();
-          });
+
+          // Future.delayed(const Duration(milliseconds: 1200), () {
+          //   controller.reverse();
+          // });
         }
       });
     final Animation curve = CurvedAnimation(
