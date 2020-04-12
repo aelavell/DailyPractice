@@ -5,61 +5,109 @@ class AccomplishmentControl extends StatefulWidget {
   _AccomplishmentControlState createState() => _AccomplishmentControlState();
 }
 
-class _AccomplishmentControlState extends State<AccomplishmentControl> with SingleTickerProviderStateMixin {
-  Animation<double> animation;
-  AnimationController controller;
-  AnimationController controller2;
+class _AccomplishmentControlState extends State<AccomplishmentControl> with TickerProviderStateMixin {
+  AnimationController interactionController;
+  AnimationController completionController;
+  AnimationController exitController;
+
+  Animation<double> interactionAnimation;
+  Animation<double> completionAnimation;
+  Animation<double> exitAnimation;
 
   @override 
   void initState() {
     super.initState();
 
-    // flow: person holds down  to 1. if they get to 1,
-    // changes into new animation state.
-    // 
+    Duration interactionDuration = const Duration(milliseconds: 1500);
+    Duration completionDuration = const Duration(milliseconds: 600);
+    Duration reverseDuration = completionDuration * 2;
+    Duration exitDuration = const Duration(milliseconds: 300);
 
-    controller = AnimationController(duration: const Duration(milliseconds: 1500), vsync: this)
-      ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
+    interactionController = AnimationController(duration: interactionDuration, reverseDuration: reverseDuration, vsync: this)
+    ..addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        Future.delayed(const Duration(milliseconds: 100), () {
+          completionController.forward();
+        });
+        Future.delayed(completionDuration * 5 + const Duration(milliseconds: 100), () {
+          // completionController.reset();
+          interactionController.reverse();
+        });
+        Future.delayed(completionDuration * 7 + const Duration(milliseconds: 100), () {
+          completionController.stop();
+          // exitController.forward();
+        });
+      }
+    });
 
-          // Future.delayed(const Duration(milliseconds: 1200), () {
-          //   controller.reverse();
-          // });
-        }
-      });
-    final Animation curve = CurvedAnimation(
-      parent: controller, 
+    final Animation interactionCurve = CurvedAnimation(
+      parent: interactionController, 
       curve: Curves.easeInOutQuart,
       reverseCurve: Curves.easeOutSine);
-    animation = Tween<double>(begin: 0, end: 1).animate(curve);
+    interactionAnimation = Tween<double>(begin: 0, end: 1).animate(interactionCurve);
+
+
+
+    completionController = AnimationController(duration: completionDuration, vsync: this)
+    ..addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        completionController.reverse();
+      }
+      else if (status == AnimationStatus.dismissed) {
+        completionController.forward();
+      }
+    });
+
+    final Animation completionCurve = CurvedAnimation(
+      parent: completionController, 
+      curve: Curves.easeInOutQuad);
+    completionAnimation = Tween<double>(begin: 0.85, end: 1.15).animate(completionCurve);
+    completionController.value = 0.5;
+
+
+
+    exitController = AnimationController(duration: exitDuration, vsync: this);
+
+    final Animation exitCurve = CurvedAnimation(
+      parent: exitController, 
+      curve: Curves.bounceInOut);
+    exitAnimation = Tween<double>(begin: 0.5, end: 1.0).chain(Tween<double>(begin: 1.0, end: 0.5)).animate(exitCurve);
+    // exitController.value = ;
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: AnimatedCircle(animation: animation), 
+      child: ScaleTransition(
+        scale: exitAnimation,
+        child: ScaleTransition(
+          scale: completionAnimation,
+          alignment: Alignment.center,
+          child: AnimatedCircle(animation: interactionAnimation)
+        )
+      ),
       onTapDown: (TapDownDetails details) {
-        controller.forward();
+        interactionController.forward();
       },
       onTapUp: (TapUpDetails details) {
-        if (controller.value < 1.0) {
-          controller.reverse();
+        if (interactionController.value < 1.0) {
+          interactionController.reverse();
         }
       },
       onLongPressEnd: (LongPressEndDetails details) {
-        if (controller.value < 1.0) {
-          controller.reverse();
+        if (interactionController.value < 1.0) {
+          interactionController.reverse();
         }
       },
       onDoubleTap: () {
-        controller.reset();
+        interactionController.reset();
       },
     );
   } 
 
   @override 
   void dispose() {
-    controller.dispose();
+    interactionController.dispose();
     super.dispose();
   }
 }

@@ -167,7 +167,7 @@ class _StaggerDemoState extends State<StaggerDemo> with TickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    timeDilation = 5.0; // 1.0 is normal animation speed.
+    timeDilation = 1.0; // 1.0 is normal animation speed.
     return Scaffold(
       appBar: AppBar(
         title: const Text('Staggered Animation'),

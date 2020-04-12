@@ -14,7 +14,7 @@ class DailyPracticeApp extends StatelessWidget {
         textTheme: Typography.whiteCupertino 
       ),
      home: Scaffold(
-       body: AccomplishedAnimation()
+       body: AccomplishmentControl()
      ),
    );
  }

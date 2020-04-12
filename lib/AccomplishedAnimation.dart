@@ -7,30 +7,29 @@ class AccomplishedAnimation extends StatefulWidget {
 
 class _AccomplishedAnimationState extends State<AccomplishedAnimation> 
   with SingleTickerProviderStateMixin {
-  Animation<double> animation;
-  AnimationController controller;
-  AnimationController controller2;
+  Animation<double> completionAnimation;
+  AnimationController completionController;
 
   @override 
   void initState() {
     super.initState(); 
 
-    controller = AnimationController(duration: const Duration(milliseconds: 1200), vsync: this)
+    completionController = AnimationController(duration: const Duration(milliseconds: 1200), vsync: this)
       ..addStatusListener((status) {
         // print(status);
         if (status == AnimationStatus.completed) {
-          controller.reverse();
+          completionController.reverse();
         }
         else if (status == AnimationStatus.dismissed) {
-          controller.forward();
+          completionController.forward();
         }
       })
       ;
     final Animation curve = CurvedAnimation(
-      parent: controller, 
+      parent: completionController, 
       curve: Curves.easeInOutSine);
-    animation = Tween<double>(begin: 0.65, end: 1.05).animate(curve);
-    controller.forward(); 
+    completionAnimation = Tween<double>(begin: 0.65, end: 1.05).animate(curve);
+    completionController.forward(); 
   }
 
   @override
@@ -38,7 +37,7 @@ class _AccomplishedAnimationState extends State<AccomplishedAnimation>
     return Stack(
       children: <Widget>[
       ScaleTransition(
-        scale: animation,
+        scale: completionAnimation,
         alignment: Alignment.center,
         child: CompletedCircle()
       ),
@@ -51,7 +50,7 @@ class _AccomplishedAnimationState extends State<AccomplishedAnimation>
 
   @override 
   void dispose() {
-    controller.dispose();
+    completionController.dispose();
     super.dispose();
   }
 }
