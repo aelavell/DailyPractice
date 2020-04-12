@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
+import 'AccomplishmentCircle.dart';
 
 class AccomplishmentControl extends StatefulWidget {
   _AccomplishmentControlState createState() => _AccomplishmentControlState();
@@ -118,16 +119,12 @@ class AnimatedCircle extends AnimatedWidget {
   Widget build(BuildContext context) {
     final animation = listenable as Animation<double>;
 
-    return Center(child: SizedBox(
-      child: CircularProgressIndicator(
-        value: animation.value, 
-        strokeWidth: 30, 
-        backgroundColor: Colors.grey, 
-        valueColor: new AlwaysStoppedAnimation<Color>(const Color(0xffbEB2181)),
-      ),
-      width:  MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width * 0.5,
-      height: MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width * 0.5 
-      )
+    return Center(child: AccomplishmentCircle(
+      value: animation.value,
+      width: MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width * 0.5,
+      height: MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width * 0.5
+    )
     );
   }
 }
+

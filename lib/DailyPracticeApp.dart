@@ -1,3 +1,4 @@
+import 'package:DailyPractice/AccomplishmentCircle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'AccomplishmentControl.dart';
@@ -14,7 +15,21 @@ class DailyPracticeApp extends StatelessWidget {
         textTheme: Typography.whiteCupertino 
       ),
      home: Scaffold(
-       body: AccomplishmentControl()
+       body: Stack(children: <Widget>[
+         Padding(
+           padding: const EdgeInsets.only(top: 32.0),
+           child: Row(children: <Widget>[
+             AccomplishmentCircle(value: 1.0, width: 50, height: 50,), 
+             AccomplishmentCircle(value: 1.0, width: 50, height: 50,), 
+             AccomplishmentCircle(value: 1.0, width: 50, height: 50,), 
+            ],
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+           ),
+         ),
+         AccomplishmentControl()
+       ],)
+       
+       
      ),
    );
  }
