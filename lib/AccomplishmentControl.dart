@@ -29,6 +29,7 @@ class _AccomplishmentControlState extends State<AccomplishmentControl> with Tick
     interactionController = AnimationController(duration: interactionDuration, reverseDuration: reverseDuration, vsync: this)
     ..addStatusListener((status) {
       if (status == AnimationStatus.completed) {
+        Provider.of<Counter>(context, listen: false).increment();
         Future.delayed(const Duration(milliseconds: 100), () {
           completionController.forward();
         });
@@ -38,7 +39,6 @@ class _AccomplishmentControlState extends State<AccomplishmentControl> with Tick
         });
         Future.delayed(completionDuration * 7 + const Duration(milliseconds: 100), () {
           completionController.stop();
-          Provider.of<Counter>(context, listen: false).increment();
           // exitController.forward();
         });
       }
