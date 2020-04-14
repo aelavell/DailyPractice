@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'AccomplishmentControl.dart';
 import 'AccomplishedAnimation.dart';
+import 'package:provider/provider.dart';
+import 'Counter.dart';
 
 class DailyPracticeApp extends StatelessWidget {
  @override
@@ -20,8 +22,14 @@ class DailyPracticeApp extends StatelessWidget {
            padding: const EdgeInsets.only(top: 32.0),
            child: Row(children: <Widget>[
              AccomplishmentCircle(value: 1.0, width: 50, height: 50,), 
-             AccomplishmentCircle(value: 1.0, width: 50, height: 50,), 
-             AccomplishmentCircle(value: 1.0, width: 50, height: 50,), 
+             Consumer<Counter>(
+              builder: (context, counter, child) => Text(
+                '${counter.value}',
+                style: Theme.of(context).textTheme.display1,
+              ),
+            ),
+            //  AccomplishmentCircle(value: 1.0, width: 50, height: 50,), 
+            //  AccomplishmentCircle(value: 1.0, width: 50, height: 50,), 
             ],
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
            ),
@@ -34,6 +42,7 @@ class DailyPracticeApp extends StatelessWidget {
    );
  }
 }
+
 
 
 const MaterialColor whiteSwatch = const MaterialColor(

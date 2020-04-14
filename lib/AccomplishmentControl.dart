@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 import 'AccomplishmentCircle.dart';
+import 'package:provider/provider.dart';
+import 'Counter.dart';
 
 class AccomplishmentControl extends StatefulWidget {
   _AccomplishmentControlState createState() => _AccomplishmentControlState();
@@ -36,6 +38,7 @@ class _AccomplishmentControlState extends State<AccomplishmentControl> with Tick
         });
         Future.delayed(completionDuration * 7 + const Duration(milliseconds: 100), () {
           completionController.stop();
+          Provider.of<Counter>(context, listen: false).increment();
           // exitController.forward();
         });
       }

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'DailyPracticeApp.dart';
-import 'Experiments/animation2.dart';
-import 'Experiments/StaggerAnimation.dart';
+import 'package:provider/provider.dart';
+import 'Counter.dart';
   
-void main() => runApp(DailyPracticeApp());
-// void main() => runApp(MaterialApp(home: StaggerDemo()));
-// void main() => runApp(LogoApp());
+void main() => runApp(
+  ChangeNotifierProvider(
+    create: (context) => Counter(),
+    child: DailyPracticeApp(),
+  )
+);
+
