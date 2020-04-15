@@ -20,18 +20,14 @@ class DailyPracticeApp extends StatelessWidget {
        body: Stack(children: <Widget>[
          Padding(
            padding: const EdgeInsets.only(top: 32.0),
-           child: Row(children: <Widget>[
-             AccomplishmentCircle(value: 1.0, width: 50, height: 50,), 
-             Consumer<Counter>(
-              builder: (context, counter, child) => Text(
-                '${counter.value}',
-                style: Theme.of(context).textTheme.display1,
-              ),
-            ),
-            //  AccomplishmentCircle(value: 1.0, width: 50, height: 50,), 
-            //  AccomplishmentCircle(value: 1.0, width: 50, height: 50,), 
-            ],
+           child: Consumer<Counter>(
+              builder: (context, counter, child) => Row(children: <Widget>[    
+                AccomplishmentCircle(value: counter.value >= 1 ? 1.0 : 0.0, width: 50, height: 50,), 
+                AccomplishmentCircle(value: counter.value >= 2 ? 1.0 : 0.0, width: 50, height: 50,), 
+                AccomplishmentCircle(value: counter.value >= 3 ? 1.0 : 0.0, width: 50, height: 50,), 
+              ],
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            ),
            ),
          ),
          AccomplishmentControl()
