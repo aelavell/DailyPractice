@@ -103,9 +103,6 @@ class _AccomplishmentControlState extends State<AccomplishmentControl> with Tick
           interactionController.reverse();
         }
       },
-      onDoubleTap: () {
-        interactionController.reset();
-      },
     );
   } 
 

@@ -30,7 +30,20 @@ class DailyPracticeApp extends StatelessWidget {
             ),
            ),
          ),
-         AccomplishmentControl()
+         AccomplishmentControl(),
+         
+         Align(
+          alignment: Alignment.bottomCenter,
+          child: Padding(
+             padding: const EdgeInsets.only(bottom: 64.0), 
+             child: Consumer<Counter>(
+               builder: (context, counter, child) => GestureDetector(
+                 onTap: () => Provider.of<Counter>(context, listen: false).reset(),
+                 child: Text(counter.value >= 3 ? "Reset" : "", textScaleFactor: 2.0)
+               ),
+             )
+           ),
+         )
        ],)
        
        

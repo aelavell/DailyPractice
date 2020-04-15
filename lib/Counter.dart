@@ -7,4 +7,9 @@ class Counter with ChangeNotifier {
     notifyListeners();
     print("incremented");
   }
+
+  void reset() {
+    value = 0;
+    notifyListeners();
+  }
 }
