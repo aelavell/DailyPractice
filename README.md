@@ -50,4 +50,4 @@ These and other reasons have led me to this point. Perhaps Flutter is the answer
 This code is released under the MIT License.
 
 Good Luck ~
-[megaman2.com]
+[http://megaman2.com]
