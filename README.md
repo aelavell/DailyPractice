@@ -6,12 +6,12 @@ This codebase is regularly updated + deployed to [https://uxprac.web.app].
 
 ## Releases:
 
-- [https://uxprac.web.app/5]
-- [https://uxprac.web.app/4]
-- [https://uxprac.web.app/3]
-- [https://uxprac.web.app/2]
-- [https://uxprac.web.app/1]
-- [https://uxprac.web.app/0]
+- [https://uxprac.web.app/5] prototype calendar view (first grid attempt in flutter)
+- [https://uxprac.web.app/4] swaps out the counter for three mini-circles
+- [https://uxprac.web.app/3] adds a counter of how many completed interactions
+- [https://uxprac.web.app/2] interaction + complete at the end
+- [https://uxprac.web.app/1] "action complete" animation
+- [https://uxprac.web.app/0] original interactive circle animation concept
 
 ## Motivation
 
@@ -41,4 +41,4 @@ These and other reasons have led me to this point. Perhaps Flutter is the answer
 This code is released under the MIT License.
 
 Good Luck ~
-(megaman2.com)
+([megaman2.com])
