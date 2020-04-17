@@ -4,6 +4,10 @@ Exploring Flutter, one day at a time.
 
 This codebase is regularly updated + deployed to [https://uxprac.web.app].
 
+NOTE: This is designed for phone screen aspect. If on a laptop, resize
+your browser window accordingly. Some layouts may make sense on normal
+laptop browser aspect - others definitely won't.
+
 ## Releases:
 
 - [https://uxprac.web.app/5] prototype calendar view (first grid attempt in flutter)
@@ -13,18 +17,19 @@ This codebase is regularly updated + deployed to [https://uxprac.web.app].
 - [https://uxprac.web.app/1] "action complete" animation
 - [https://uxprac.web.app/0] original interactive circle animation concept
 
-## Motivation
-
-I am learning Flutter currently as it seems to offer a promising path to
-truly modular + reusable UIs, developed once and deployed cross platform.
-
-My interests are as follows:
+## Interests
 
 - Crafting small, animated interactions that help close the gap between person & computer
 - Crafting large, modular codebases which lay foundations on which to rapidly build & deploy apps
 - Connecting the dots between app // website // game // audio // visual // computer // human // experience
 
-## Challenges in Native Dev
+## Motivation
+
+I am learning Flutter currently as it seems to offer a promising path to
+truly modular + reusable UIs, developed once and deployed cross platform.
+
+
+### Challenges in Native Dev
 
 I have been developing native iOS for a very long time.
 
@@ -36,7 +41,11 @@ Inherent challenges with native development:
 
 I am not as familiar with Android, but the problems are similar.
 
+## The Path 
+
 These and other reasons have led me to this point. Perhaps Flutter is the answer, perhaps not. I intend to find out, over time.
+
+## License
 
 This code is released under the MIT License.
 
