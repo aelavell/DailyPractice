@@ -6,12 +6,12 @@ This codebase is regularly updated + deployed to [https://uxprac.web.app].
 
 ## Releases:
 
-[https://uxprac.web.app/5]
-[https://uxprac.web.app/4]
-[https://uxprac.web.app/3]
-[https://uxprac.web.app/2]
-[https://uxprac.web.app/1]
-[https://uxprac.web.app/0]
+- [https://uxprac.web.app/5]
+- [https://uxprac.web.app/4]
+- [https://uxprac.web.app/3]
+- [https://uxprac.web.app/2]
+- [https://uxprac.web.app/1]
+- [https://uxprac.web.app/0]
 
 ## Motivation
 
