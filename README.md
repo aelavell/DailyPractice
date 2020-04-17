@@ -2,7 +2,16 @@
 
 Exploring Flutter, one day at a time.
 
-This codebase is regularly updated + deployed to [https://daily-practice-app.firebase.com].
+This codebase is regularly updated + deployed to [https://uxprac.web.app].
+
+## Releases:
+
+[https://uxprac.web.app/5]
+[https://uxprac.web.app/4]
+[https://uxprac.web.app/3]
+[https://uxprac.web.app/2]
+[https://uxprac.web.app/1]
+[https://uxprac.web.app/0]
 
 ## Motivation
 
@@ -14,6 +23,8 @@ My interests are as follows:
 - Crafting small, animated interactions that help close the gap between person & computer
 - Crafting large, modular codebases which lay foundations on which to rapidly build & deploy apps
 - Connecting the dots between app // website // game // audio // visual // computer // human // experience
+
+## Challenges in Native Dev
 
 I have been developing native iOS for a very long time.
 
